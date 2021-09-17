@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:method_channel_bug_demo_win/second_screen.dart'
+import 'package:method_channel_bug_demo_win/second_screen.dart';
 
 void main() {
   runApp(const MyApp());

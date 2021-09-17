@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:method_channel_bug_demo_win/second_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,6 +44,6 @@ class FirstScreen extends StatelessWidget {
         appBar: AppBar(title: const Text('first screen')),
         body: Center(
             child:
-                TextButton(child: const Text('click me'), onPressed: () {})));
+                TextButton(child: const Text('click me'), onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondScreen())),)));
   }
 }

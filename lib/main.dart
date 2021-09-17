@@ -43,6 +43,6 @@ class FirstScreen extends StatelessWidget {
         appBar: AppBar(title: const Text('first screen')),
         body: Center(
             child:
-                TextButton(child: const Text('click me'), onPressed: () {})));
+                TextButton(child: const Text('click me'), onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondScreen())))));
   }
 }

@@ -14,13 +14,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String? testString;
   static const firstPlatform = MethodChannel('com.example.platform1');
 
   @override
   void initState() {
     super.initState();
-    firstPlatform.setMethodCallHandler(
-        (call) async => print('native call to first screen'));
+    testString = 'moin';
+    firstPlatform.setMethodCallHandler((call) async => print(testString));
   }
 
   @override

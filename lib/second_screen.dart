@@ -14,6 +14,7 @@ class _SecondScreenState extends State<SecondScreen> {
   @override
   void initState() {
     super.initState();
+    print("registering second platform (method channel)...");
     secondPlatform.setMethodCallHandler(
         (call) async => print('Native call to second screen'));
   }

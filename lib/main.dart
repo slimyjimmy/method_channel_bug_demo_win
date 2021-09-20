@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:method_channel_bug_demo_win/second_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -20,8 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    testString = 'moin';
-    firstPlatform.setMethodCallHandler((call) async => print(testString));
+    firstPlatform.setMethodCallHandler((call) async => print("received native call"));
   }
 
   @override
@@ -31,7 +31,12 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const FirstScreen(),
+      home: Scaffold(
+        body: Center(child: TextButton(child: const Text('press me'), onPressed: () {
+          print("should now unregister native methodChannel callback...");
+          firstPlatform.setMethodCallHandler(null);
+        },),),
+      ),
     );
   }
 }
